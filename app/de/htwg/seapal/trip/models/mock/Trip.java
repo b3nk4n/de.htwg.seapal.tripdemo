@@ -125,4 +125,9 @@ public class Trip extends AbstractTrip{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	@Override
+	public void setId(long id) {
+
+	}
 }

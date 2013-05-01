@@ -42,4 +42,5 @@ public interface ITrip {
 	void setNotes( String text);
 
 	long getId();
+	void setId(long id);
 }

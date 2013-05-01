@@ -13,7 +13,8 @@ public class TripHashMapDatabase implements ITripDatabase {
 	
 	@Override
 	public long newTrip() {
-		ITrip trip = new Trip(System.currentTimeMillis());
+		ITrip trip = new Trip();
+		trip.setId(System.currentTimeMillis());
 		long tId = trip.getId();
 		database.put(tId, trip);
 		return tId;

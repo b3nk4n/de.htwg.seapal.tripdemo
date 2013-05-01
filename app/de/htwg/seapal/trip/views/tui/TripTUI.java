@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+
+import com.google.inject.Inject;
+
 import de.htwg.seapal.trip.controllers.ITripController;
 import de.htwg.seapal.common.observer.*;
 import de.htwg.seapal.common.plugin.Plugin;
@@ -18,6 +21,7 @@ public class TripTUI implements Plugin, IObserver{
 	private ITripController controller;
 	private ITrip trip;
 
+	@Inject
 	public TripTUI(ITripController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
@@ -38,7 +42,9 @@ public class TripTUI implements Plugin, IObserver{
             continuee = false;
             System.out.println("Saved Trip and quit");
 						break;
-			case "createTrip":	trip = new Trip(scanner.nextInt());
+			case "createTrip":	
+				trip = new Trip();
+				trip.setId(scanner.nextInt());
 						break;
 			case "name":
 						trip.setName(scanner.next());

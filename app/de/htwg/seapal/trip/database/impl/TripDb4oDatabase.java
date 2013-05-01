@@ -21,7 +21,8 @@ public class TripDb4oDatabase implements ITripDatabase {
 	
 	@Override
 	public long  newTrip() {
-		ITrip trip = new Trip(tripId);
+		ITrip trip = new Trip();
+		trip.setId(tripId);
 		tripId++;
 		long tId = trip.getId();
 		saveTrip(trip);

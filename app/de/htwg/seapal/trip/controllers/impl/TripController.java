@@ -1,5 +1,6 @@
 package de.htwg.seapal.trip.controllers.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,7 @@ import com.google.inject.Singleton;
 import de.htwg.seapal.trip.controllers.ITripController;
 import de.htwg.seapal.trip.database.ITripDatabase;
 import de.htwg.seapal.trip.models.ITrip;
+import de.htwg.seapal.trip.models.impl.Trip;
 import de.htwg.seapal.common.observer.Observable;
 
 @Singleton
@@ -227,7 +229,7 @@ public class TripController extends Observable implements ITripController{
 	@Override
 	public void setFuel(long id, double percent) {
 		ITrip trip;
-		
+
 		if (database.containsTrip(id)) {
 			trip = database.getTripById(id);
 			trip.setFuel(percent);
@@ -266,5 +268,45 @@ public class TripController extends Observable implements ITripController{
 			return database.getTripById(id).getNotes();
 		else
 			return null;
+	}
+
+	@Override
+	public List<ITrip> getTrips() {
+		List<ITrip> trips = new ArrayList<ITrip>();
+		
+		ITrip t1 = new Trip();
+		t1.setName("Caribbean Cruise");
+		t1.setDuration(2313123);
+		t1.setEndLocation("KN");
+		t1.setStartLocation("FN");
+		t1.setMotor(1231);
+		t1.setSkipper("Skipperidoo");
+		t1.setStartTime(new Date());
+		t1.setNotes("Notes...");
+		trips.add(t1);
+		
+		ITrip t2 = new Trip();
+		t2.setName("Mittelmeer Rundfahrt");
+		t2.setDuration(1213);
+		t2.setEndLocation("Malle");
+		t2.setStartLocation("Ibiza");
+		t2.setMotor(1231);
+		t2.setSkipper("Skippy");
+		t2.setStartTime(new Date());
+		t2.setNotes("Bla blaaa...");
+		trips.add(t2);
+		
+		ITrip t3 = new Trip();
+		t3.setName("Titanic Cruise");
+		t3.setDuration(1912);
+		t3.setEndLocation("England");
+		t3.setStartLocation("USA");
+		t3.setMotor(99999);
+		t3.setSkipper("Captain Hook");
+		t3.setStartTime(new Date());
+		t3.setNotes("Alle gehen drauf!");
+		trips.add(t3);
+		
+		return trips;
 	}
 }

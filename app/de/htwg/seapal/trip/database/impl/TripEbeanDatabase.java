@@ -10,7 +10,8 @@ public class TripEbeanDatabase implements ITripDatabase {
 
 	@Override
 	public long newTrip() {
-		Trip trip = new Trip(System.currentTimeMillis());
+		Trip trip = new Trip();
+		trip.setId(System.currentTimeMillis());
 		Ebean.save(trip);
 		return trip.getId();
 	}

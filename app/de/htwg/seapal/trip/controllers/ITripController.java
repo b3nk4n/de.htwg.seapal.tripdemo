@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 import de.htwg.seapal.common.observer.IObservable;
+import de.htwg.seapal.trip.models.ITrip;
 
 public interface ITripController extends IObservable{
 	
 	Map<Integer, String> getTripList();
+	List<ITrip> getTrips();
 	
 	String getName(long id);
 	void setName(long id, String name);

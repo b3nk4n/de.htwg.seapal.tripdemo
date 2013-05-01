@@ -12,7 +12,7 @@ import com.google.inject.Singleton;
 import de.htwg.seapal.trip.controllers.ITripController;
 import de.htwg.seapal.trip.database.ITripDatabase;
 import de.htwg.seapal.trip.models.ITrip;
-import de.htwg.seapal.common.*;
+import de.htwg.seapal.trip.models.mock.Trip;
 import de.htwg.seapal.common.observer.Observable;
 
 @Singleton
@@ -21,9 +21,43 @@ public class TripController extends Observable implements ITripController{
   @Override
   public Map<Integer, String> getTripList() {
     Map<Integer, String> trips = new HashMap<Integer, String>();
-    trips.put(001, "Caribbean Cruise");
+    trips.put(1, "Caribbean Cruise");
+    trips.put(2, "Kleine Seefahrt");
+    trips.put(3, "KN-FN Trip");
+    trips.put(4, "Hafenrundfahrt");
+    trips.put(5, "Mittelmeer-Rundfahrt");
+    trips.put(6, "Grosser Trip");
     return trips;
   }
+  
+  	@Override
+	public List<ITrip> getTrips() {
+		List<ITrip> trips = new ArrayList<ITrip>();
+		
+		ITrip t1 = new Trip();
+		t1.setName("Caribbean Cruise");
+		t1.setDuration(2313123);
+		t1.setEndLocation("KN");
+		t1.setStartLocation("FN");
+		t1.setMotor(1231);
+		t1.setSkipper("Skipperidoo");
+		t1.setStartTime(new Date());
+		t1.setNotes("Notes...");
+		trips.add(t1);
+		
+		ITrip t2 = new Trip();
+		t2.setName("Mittelmeer Rundfahrt");
+		t2.setDuration(1213);
+		t2.setEndLocation("Malle");
+		t2.setStartLocation("Ibiza");
+		t2.setMotor(1231);
+		t2.setSkipper("Skippy");
+		t2.setStartTime(new Date());
+		t2.setNotes("Bla blaaa...");
+		trips.add(t2);
+		
+		return trips;
+	}
   
 	@Override
 	public String getName(long id) 
@@ -127,4 +161,5 @@ public class TripController extends Observable implements ITripController{
 	public String getNotes(long id) {
     return "Nice Trip. Enjoy!";
 	}
+
 }

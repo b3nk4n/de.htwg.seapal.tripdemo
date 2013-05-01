@@ -43,11 +43,6 @@ public class Trip extends AbstractTrip{
 	@Column
 	private Map<Long,String> map;
 	
-	public Trip(long l)
-	{
-		this.id = l;
-	}
-	
 	public String getName() {
 		return name;
 	}
@@ -159,6 +154,11 @@ public class Trip extends AbstractTrip{
 	@Override
 	public long getId() {
 		return id;
+	}
+	
+	@Override
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	@Override
