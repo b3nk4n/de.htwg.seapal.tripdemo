@@ -1,0 +1,11 @@
+@(message: String, trips: List[de.htwg.seapal.trip.models.ITrip])
+
+@main("TRIP DEMO") {
+    
+    <p>@message</p>
+    @*<ul>
+    	@for(trip <- trips) {
+    		<li>Name: @trip.getName()  -  Skipper: @trip.getSkipper()</li>
+    	}
+    </ul>*@
+}
