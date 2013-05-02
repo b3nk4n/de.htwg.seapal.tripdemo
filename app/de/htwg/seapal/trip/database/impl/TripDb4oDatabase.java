@@ -1,5 +1,6 @@
 package de.htwg.seapal.trip.database.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.db4o.Db4oEmbedded;
@@ -55,6 +56,13 @@ public class TripDb4oDatabase implements ITripDatabase {
 			return null;			
 		} 
 		return trips.get(0);
+	}
+	
+	@Override
+	public List<ITrip> getAllTrips() {
+		List<ITrip> trips = db.query(ITrip.class);
+		
+		return trips;
 	}
 
 	@Override

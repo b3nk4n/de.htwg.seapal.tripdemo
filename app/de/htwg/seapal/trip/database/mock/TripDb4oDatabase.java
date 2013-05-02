@@ -56,6 +56,13 @@ public class TripDb4oDatabase implements ITripDatabase {
 		} 
 		return trips.get(0);
 	}
+	
+	@Override
+	public List<ITrip> getAllTrips() {
+		List<ITrip> trips = db.query(ITrip.class);
+		
+		return trips;
+	}
 
 	@Override
 	public void deleteTripById(long tripId) {

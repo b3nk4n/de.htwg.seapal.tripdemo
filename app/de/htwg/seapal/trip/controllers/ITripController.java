@@ -11,6 +11,7 @@ public interface ITripController extends IObservable{
 	
 	Map<Integer, String> getTripList();
 	List<ITrip> getTrips();
+	void createTrip(ITrip trip);
 	
 	String getName(long id);
 	void setName(long id, String name);

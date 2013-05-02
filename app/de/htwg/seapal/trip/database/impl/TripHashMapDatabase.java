@@ -1,6 +1,8 @@
 package de.htwg.seapal.trip.database.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import de.htwg.seapal.trip.database.ITripDatabase;
@@ -40,4 +42,15 @@ public class TripHashMapDatabase implements ITripDatabase {
 		return database.containsKey(tripId);
 	}
 
+	@Override
+	public List<ITrip> getAllTrips() {
+		List<ITrip> trips = new ArrayList<ITrip>();
+		
+		for (ITrip trip : database.values())
+		{
+			trips.add(trip);
+		}
+		
+		return trips;
+	}
 }

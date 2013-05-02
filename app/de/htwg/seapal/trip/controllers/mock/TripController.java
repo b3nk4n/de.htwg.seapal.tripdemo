@@ -162,4 +162,10 @@ public class TripController extends Observable implements ITripController{
     return "Nice Trip. Enjoy!";
 	}
 
+	@Override
+	public void createTrip(ITrip trip) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

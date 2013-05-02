@@ -1,5 +1,8 @@
 package de.htwg.seapal.trip.database.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.avaje.ebean.Ebean;
 
 import de.htwg.seapal.trip.database.ITripDatabase;
@@ -29,6 +32,11 @@ public class TripEbeanDatabase implements ITripDatabase {
 	@Override
 	public ITrip getTripById(long tripId) {
 		return Ebean.find(Trip.class, tripId);
+	}
+	
+	@Override
+	public List<ITrip> getAllTrips() {
+		return Ebean.find(ITrip.class).findList();
 	}
 
 	@Override

@@ -1,11 +1,24 @@
-@(message: String, trips: List[de.htwg.seapal.trip.models.ITrip])
+@(message: String, trips: List[de.htwg.seapal.trip.models.ITrip], tripForm: Form[de.htwg.seapal.trip.models.impl.Trip])
+
+@import helper._
 
 @main("TRIP DEMO") {
     
-    <p>@message</p>
+    <h3>Message: @message</h3>
     <ul>
     	@for(trip <- trips) {
     		<li>Name: @trip.getName()  -  Skipper: @trip.getSkipper()</li>
     	}
     </ul>
+    
+    <h3>New Trip</h3>
+    
+    @form(de.htwg.seapal.trip.controllers.routes.PlayTripController.create()) {
+        
+        @inputText(tripForm("name"))
+        @inputText(tripForm("skipper")) 
+        
+        <input type="submit" value="Add">
+        
+    }
 }
