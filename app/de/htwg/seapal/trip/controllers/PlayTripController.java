@@ -15,8 +15,8 @@ import views.html.*;
 
 @SuppressWarnings("unused")
 public class PlayTripController extends Controller {
-  
-	static Form<Trip> tripForm = Form.form(Trip.class);
+	
+	private Form<Trip> tripForm = Form.form(Trip.class);
 	
 	@Inject
 	private ITripController tripController;
