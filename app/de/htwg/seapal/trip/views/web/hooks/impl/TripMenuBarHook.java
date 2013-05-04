@@ -1,4 +1,4 @@
-package de.htwg.seapal.trip.views.web.impl;
+package de.htwg.seapal.trip.views.web.hooks.impl;
 
 import de.htwg.seapal.maps.views.web.hooks.MenuBarHook;
 
