@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import play.*;
 import play.data.Form;
 import play.mvc.*;
+import de.htwg.seapal.common.plugin.HookRegistry;
 import de.htwg.seapal.trip.models.ITrip;
 import de.htwg.seapal.trip.models.impl.Trip;
 import de.htwg.seapal.trip.views.html.*;
