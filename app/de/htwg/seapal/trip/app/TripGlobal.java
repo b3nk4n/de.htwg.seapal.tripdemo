@@ -10,7 +10,6 @@ import scala.collection.mutable.StringBuilder;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import de.htwg.seapal.common.modules.ReflectionModule;
 import de.htwg.seapal.common.plugin.HookHandler;
 import de.htwg.seapal.common.plugin.HookRegistry;
 import de.htwg.seapal.common.plugin.Initializable;
@@ -45,11 +44,9 @@ public class TripGlobal extends GlobalSettings implements Initializable {
 			@Override
 			public Html execute(Object nothing) {
 				StringBuilder builder = new StringBuilder();
-				builder.append("<a href=\">")
-					.append(de.htwg.seapal.trip.controllers.routes.PlayTripController.trips())
-					.append("\">")
-					.append("Trip")
-					.append("</a>");
+				builder.append(String.format("<a href=\"%s\">Trip</a>",
+						de.htwg.seapal.trip.controllers.routes.PlayTripController.trips().url()));
+				
 				
 				return new Html(builder);
 			}
